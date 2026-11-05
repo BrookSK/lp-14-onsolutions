@@ -639,11 +639,18 @@ img {
 }
 
 .chip img {
-  max-width: 136px;
-  max-height: 42px;
+  max-width: 100%;
+  max-height: 48px;
   width: auto;
   height: auto;
   object-fit: contain;
+}
+
+/* Logos circulares (Brooks, Mafedo, Quatri): usam a altura do chip */
+.chip img.is-round {
+  max-width: 56px;
+  max-height: 56px;
+  border-radius: 50%;
 }
 
 .chip .wm {
@@ -730,10 +737,13 @@ img {
 }
 
 /* ---------- FAQ ---------- */
+#duvidas .w { text-align: center; }
+
 .faq {
   display: grid;
   gap: 14px;
   margin-top: 34px;
+  margin-inline: auto;
 }
 
 details {
@@ -748,12 +758,18 @@ summary {
   padding: 22px;
   font-weight: 600;
   font-size: 16.5px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   gap: 12px;
   align-items: center;
   min-height: 58px;
+  text-align: center;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* célula vazia à esquerda para equilibrar o "+" da direita, mantendo a pergunta centralizada */
+summary::before {
+  content: "";
 }
 
 summary::-webkit-details-marker {
